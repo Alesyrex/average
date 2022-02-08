@@ -45,7 +45,8 @@ class AverageTest {
                 Arguments.of("-1 -1 12 3 5 -100 0 ", "-13"),
                 Arguments.of("1111 111 11 1 0 ", "308"),
                 Arguments.of("1 1 -1 -1 0 ", "0"),
-                Arguments.of("1 1 -2 0 ", "0")
+                Arguments.of("1 1 -2 0 ", "0"),
+                Arguments.of("0", "0")
         );
     }
 
