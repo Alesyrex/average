@@ -3,29 +3,35 @@ package com.epam.rd.autotasks;
 import java.util.Scanner;
 
 public class Average {
-    public static void main(String[] args) {
-        final int lengthOfArray = 100;
-        Scanner scanner = new Scanner(System.in);
-        int[] arrayForAverage = new int[lengthOfArray];
 
+    public static void main(String[] args) {
+        int average;
+        average = calculationAverage();
+        printAverage(average);
+    }
+
+    public static int calculationAverage() {
         int average;
         int sum = 0;
         int count = 0;
+        int temp;
 
-        while (count < arrayForAverage.length) {
-            arrayForAverage[count] = scanner.nextInt();
-            if (arrayForAverage[count] == 0) {
-                break;
-            }
-            sum += arrayForAverage[count];
-            ++count;
+        try (Scanner scanner = new Scanner(System.in)) {
+            do {
+                temp = scanner.nextInt();
+                sum += temp;
+                ++count;
+            } while (temp != 0);
         }
-
-        if (count != 0) {
-            average = sum / count;
-            System.out.println(average);
+        if (count != 1) {
+            average = sum / (count - 1);
         } else {
-            System.out.println("0");
+            average = 0;
         }
+        return average;
+    }
+
+    public static void printAverage(int average) {
+        System.out.println(average);
     }
 }
