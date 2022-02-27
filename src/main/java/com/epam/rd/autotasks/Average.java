@@ -3,15 +3,10 @@ package com.epam.rd.autotasks;
 import java.util.Scanner;
 
 public class Average {
-
-    public static void main(String[] args) {
-        int average;
-        average = calculationAverage();
-        printAverage(average);
-    }
-
-    public static int calculationAverage() {
-        int average;
+    
+    private int averageOfNumbers;
+    
+    public void calculationAverage() {
         int sum = 0;
         int count = 0;
         int temp;
@@ -23,15 +18,18 @@ public class Average {
                 ++count;
             } while (temp != 0);
         }
-        if (count != 1) {
-            average = sum / (count - 1);
-        } else {
-            average = 0;
-        }
-        return average;
+        averageOfNumbers = (count != 1) ? (sum / (count - 1)) : 0;
     }
 
-    public static void printAverage(int average) {
-        System.out.println(average);
+    public void printAverage() {
+        System.out.println(averageOfNumbers);
     }
+
+    public static void main(String[] args) {
+        Average average = new Average();
+        average.calculationAverage();
+        average.printAverage();
+    }
+
+
 }
