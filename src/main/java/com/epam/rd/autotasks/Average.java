@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class Average {
     
-    private int averageOfNumbers;
-    
-    public void calculationAverage() {
+    public int calculationAverage() {
+        int average = 0;
         int sum = 0;
         int count = 0;
         int temp;
@@ -18,17 +17,21 @@ public class Average {
                 ++count;
             } while (temp != 0);
         }
-        averageOfNumbers = (count != 1) ? (sum / (count - 1)) : 0;
+        if (count != 1) {
+            average = sum / (count - 1);
+        }
+        return average;
     }
 
-    public void printAverage() {
-        System.out.println(averageOfNumbers);
+    public void printAverage(int inAverage) {
+        System.out.println(inAverage);
     }
 
     public static void main(String[] args) {
+        int averageOfNumbers;
         Average average = new Average();
-        average.calculationAverage();
-        average.printAverage();
+        averageOfNumbers = average.calculationAverage();
+        average.printAverage(averageOfNumbers);
     }
 
 
